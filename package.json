@@ -1,0 +1,19 @@
+{
+  "name": "mamba",
+  "version": "1.0.0",
+  "description": "mamba",
+  "main": "index.js",
+  "scripts": {
+    "build": "webpack",
+    "prepublish": "webpack"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "clean-webpack-plugin": "^3.0.0",
+    "terser-webpack-plugin": "^2.3.5",
+    "webpack": "^4.41.6",
+    "webpack-cli": "^3.3.11"
+  }
+}

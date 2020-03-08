@@ -1,0 +1,47 @@
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Demo01</title>
+  <script src="../dist/mamba.min.js"></script>
+  <script src="./MV.js"></script>
+</head>
+<body>
+  <script>
+    var vertexShader = `
+      attribute vec4 vPosition;
+      uniform mat4 testmodel;
+      uniform mat4 pmodel;
+      void main() {
+        gl_Position = pmodel * testmodel * vPosition;
+      }
+    `
+    var fragmentShader = `
+      precision mediump float;
+      void main() {
+        gl_FragColor = vec4(0.5, 0.5, 0.5, 1.0);
+      }
+    `
+    var Mamba = new mamba();
+    var cvs = Mamba.createCanvas(300, 200);
+    var gl = Mamba.createGL();
+    var arr = new Float32Array([
+      -0.5, 0.5, 0, -0.5, -0.5, 0, 0.5, -0.5, 0,
+      0.5, -0.5, 0, 0.5, 0.5, 0, -0.5, 0.5, 0
+    ]);
+    Mamba.initShaders(vertexShader, fragmentShader);
+    Mamba.setSize(cvs.width, cvs.height);
+    Mamba.setBackGroundColor(1, 0.5, 1, 1);
+    Mamba.setAttr('vPosition', arr, 3, gl.FLOAT, 0, 0);
+    Mamba.setMatrix('testmodel', 4, Mamba.translate(0, 0, 0));
+    Mamba.setMatrix('pmodel', 4, Mamba.ortho(-1, 1, -1, 1, -1, 1));
+    Mamba.render(6);
+    // var a = Mamba.lookAt([0,0,1],[0,0,0],[0,1,0]);
+    // var b = flatten(lookAt([0,0,1],[0,0,0],[0,1,0]));
+    var a = Mamba.normalize([1,2,3]);
+    var b = normalize([1,2,3]);
+    console.log(a);
+    console.log(b);
+  </script>
+</body>
+</html>
