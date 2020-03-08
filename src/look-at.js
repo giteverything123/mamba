@@ -1,7 +1,8 @@
 import normalize from './normalize';
 import cross from './cross';
-function lookAt(eye, at , up) {
-  var vpn = [at[0] - eye[0], at[1] - eye[1], at[2] -eye[2]];
+function lookAt(eye, at, up) {
+  //var vpn = [at[0] - eye[0], at[1] - eye[1], at[2] -eye[2]];
+  var vpn = [eye[0] - at[0], eye[1] - at[1], eye[2] -at[2]];
   var n = normalize(vpn);
   var u = normalize(cross(up, n));
   var v = normalize(cross(n, u));

@@ -111,7 +111,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _create_canvas__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(9);
 /* harmony import */ var _render__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(10);
 /* harmony import */ var _perspective__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(11);
-/* harmony import */ var _perspective__WEBPACK_IMPORTED_MODULE_10___default = /*#__PURE__*/__webpack_require__.n(_perspective__WEBPACK_IMPORTED_MODULE_10__);
 /* harmony import */ var _normalize__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(12);
 /* harmony import */ var _cross__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(13);
 /* harmony import */ var _dot__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(14);
@@ -148,7 +147,7 @@ mamba.prototype.setMatrix = _set_matrix__WEBPACK_IMPORTED_MODULE_6__["default"];
 mamba.prototype.ortho = _ortho__WEBPACK_IMPORTED_MODULE_7__["default"];
 mamba.prototype.createCanvas = _create_canvas__WEBPACK_IMPORTED_MODULE_8__["default"];
 mamba.prototype.render = _render__WEBPACK_IMPORTED_MODULE_9__["default"];
-mamba.prototype.perspective = _perspective__WEBPACK_IMPORTED_MODULE_10___default.a;
+mamba.prototype.perspective = _perspective__WEBPACK_IMPORTED_MODULE_10__["default"];
 mamba.prototype.normalize = _normalize__WEBPACK_IMPORTED_MODULE_11__["default"];
 mamba.prototype.cross = _cross__WEBPACK_IMPORTED_MODULE_12__["default"];
 mamba.prototype.dot = _dot__WEBPACK_IMPORTED_MODULE_13__["default"];
@@ -427,8 +426,10 @@ function render(num) {
 
 /***/ }),
 /* 11 */
-/***/ (function(module, exports) {
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
 
+"use strict";
+__webpack_require__.r(__webpack_exports__);
 function perspective(fovy, aspect, near, far) {
   var top = near * Math.tan(Math.PI * fovy / 180);
   var right = top * aspect;
@@ -440,7 +441,7 @@ function perspective(fovy, aspect, near, far) {
   ]);
 }
 
-return perspective;
+/* harmony default export */ __webpack_exports__["default"] = (perspective);
 
 /***/ }),
 /* 12 */
@@ -501,8 +502,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _cross__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(13);
 
 
-function lookAt(eye, at , up) {
-  var vpn = [at[0] - eye[0], at[1] - eye[1], at[2] -eye[2]];
+function lookAt(eye, at, up) {
+  //var vpn = [at[0] - eye[0], at[1] - eye[1], at[2] -eye[2]];
+  var vpn = [eye[0] - at[0], eye[1] - at[1], eye[2] -at[2]];
   var n = Object(_normalize__WEBPACK_IMPORTED_MODULE_0__["default"])(vpn);
   var u = Object(_normalize__WEBPACK_IMPORTED_MODULE_0__["default"])(Object(_cross__WEBPACK_IMPORTED_MODULE_1__["default"])(up, n));
   var v = Object(_normalize__WEBPACK_IMPORTED_MODULE_0__["default"])(Object(_cross__WEBPACK_IMPORTED_MODULE_1__["default"])(n, u));

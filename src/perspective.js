@@ -9,4 +9,4 @@ function perspective(fovy, aspect, near, far) {
   ]);
 }
 
-return perspective;
+export default perspective;
