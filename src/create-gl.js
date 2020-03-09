@@ -35,6 +35,7 @@ var createGL = function (opt_attribs) {
     showLink(OTHER_PROBLEM);
   }
   this.gl = context;
+  context.enable(context.DEPTH_TEST);
   if (!context) {
 		alert('您当前的浏览器不支持webgl');
   }

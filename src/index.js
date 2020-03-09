@@ -13,6 +13,8 @@ import normalize from './normalize';
 import cross from './cross';
 import dot from './dot';
 import lookAt from './look-at';
+import mult from './mult';
+import {rotateY} from './rotate';
 /*
   initShaders是初始化顶点着色器和片元着色器的,并返回program,如果初始化失败,则返回-1
 */
@@ -35,5 +37,7 @@ mamba.prototype.normalize = normalize;
 mamba.prototype.cross = cross;
 mamba.prototype.dot = dot;
 mamba.prototype.lookAt = lookAt;
+mamba.prototype.mult = mult;
+mamba.prototype.rotateY = rotateY;
 export default mamba;
 
