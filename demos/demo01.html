@@ -94,21 +94,21 @@
       requestAnimationFrame(render);
     }
     render()
-    // var m1 = new Float32Array([
-    //   1,2,3,4,
-    //   1,1,1,2,
-    //   1,0,0,1,
-    //   1,1,2,2
-    // ]);
+    var m1 = new Float32Array([
+      1,2,3,4,
+      1,1,1,2,
+      1,0,0,1,
+      1,1,2,2
+    ]);
 
-    // var m2 = new Float32Array([
-    //   1,2,3,4,
-    //   1,1,1,2,
-    //   1,0,0,1,
-    //   1,1,2,3
-    // ]);
-    // var c = Mamba.mult(m1,m2);
-    // console.log(c);
+    var m2 = new Float32Array([
+      1,2,3,4,
+      1,1,1,2,
+      1,0,0,1,
+      1,1,2,3
+    ]);
+    var c = Mamba.mult(m1,m2);
+    console.log(c);
     // [ 
     //   1, 1, 1, 1,    1, 1, 1, 1,  
     //   2, 1, 0, 1,    2, 1, 0, 1,  
