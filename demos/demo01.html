@@ -77,19 +77,15 @@
     Mamba.setBackGroundColor(1, 1, 1, 1);
     Mamba.setAttr('vPosition', flatten(pointsArray), 4, gl.FLOAT, 0, 0);
     Mamba.setAttr('vColor', flatten(colorsArray), 4, gl.FLOAT, 0, 0);
-    var lookatmodel = Mamba.lookAt([0,10,20],[0,0,0],[0,1,0]);
-    var rotatemodel = Mamba.rotateY(30);
-    var identify = new Float32Array([
-      1,0,0,0,
-      0,1,0,0,
-      0,0,1,0,
-      0,0,0,1
-    ])
-    var model = lookatmodel;
-    Mamba.setMatrix('viewModel', 4, model);
+    var lookatmodel = Mamba.lookAt([0,15,20],[0,0,0],[0,1,0]);
+    
     Mamba.setMatrix('projectModel', 4, Mamba.perspective(45, 1, 10, 60));
+    var rotatemodel,model;
     function render() {
-      step += 0.01;
+      step += 1;
+      rotatemodel = Mamba.rotateY(step);
+      model = Mamba.mult(rotatemodel, lookatmodel);
+      Mamba.setMatrix('viewModel', 4, model);
       Mamba.render(36);
       requestAnimationFrame(render);
     }
@@ -108,7 +104,6 @@
       1,1,2,3
     ]);
     var c = Mamba.mult(m1,m2);
-    console.log(c);
     // [ 
     //   1, 1, 1, 1,    1, 1, 1, 1,  
     //   2, 1, 0, 1,    2, 1, 0, 1,  
